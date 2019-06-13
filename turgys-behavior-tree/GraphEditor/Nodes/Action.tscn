@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/behavior-tree-plugin/GraphEditor/Nodes/Action.gd" type="Script" id=1]
+[ext_resource path="res://addons/behavior-tree-plugin/GraphEditor/Nodes/icon_script_create.svg" type="Texture" id=2]
+[ext_resource path="res://addons/behavior-tree-plugin/GraphEditor/Nodes/red_cross.png" type="Texture" id=3]
+
+[node name="Action" type="GraphNode"]
+margin_right = 104.0
+margin_bottom = 57.0
+mouse_filter = 1
+title = "Action"
+show_close = true
+resizable = true
+comment = true
+overlay = 1
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 0.8, 0.4, 0.8, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 1
+slot/0/right_color = Color( 0.8, 0.4, 0.8, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+actionname = "ACTON"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 88.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 0, 25 )
+mouse_filter = 1
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="PopupMenu" type="PopupMenu" parent="TextureButton"]
+margin_left = 95.9501
+margin_top = -19.95
+margin_right = 239.95
+margin_bottom = 52.05
+rect_min_size = Vector2( 144, 72 )
+items = [ "New Script", null, 0, false, false, 0, 0, null, "", false, "Load Script", null, 0, false, false, 1, 0, null, "", false ]
+hide_on_state_item_selection = true
+
+[node name="FileDialog" type="FileDialog" parent="TextureButton"]
+margin_left = -145.0
+margin_top = -77.0
+margin_right = 455.0
+margin_bottom = 210.0
+window_title = "Open a File"
+mode = 0
+filters = PoolStringArray( "*.gd ; GD Script" )
+
+[node name="ScriptName" type="Label" parent="TextureButton"]
+visible = false
+margin_left = 53.2001
+margin_top = 0.950005
+margin_right = 132.2
+margin_bottom = 27.95
+valign = 1
+
+[node name="Remove" type="TextureButton" parent="TextureButton"]
+visible = false
+modulate = Color( 0.960784, 0.517647, 0.517647, 1 )
+margin_left = 33.5378
+margin_top = -0.011116
+margin_right = 50.5378
+margin_bottom = 10.9889
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 49.0
+margin_right = 88.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 0, 25 )
+hint_tooltip = "Right click to edit"
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+text = "ACTON"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="LineEdit" type="LineEdit" parent="Name"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+[connection signal="close_request" from="." to="." method="_on_Action_close_request"]
+[connection signal="resize_request" from="." to="." method="_on_Action_resize_request"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_TextureButton_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="id_pressed" from="TextureButton/PopupMenu" to="." method="_option_chosen"]
+[connection signal="file_selected" from="TextureButton/FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="mouse_entered" from="TextureButton/Remove" to="." method="_on_Remove_mouse_entered"]
+[connection signal="pressed" from="TextureButton/Remove" to="." method="_on_Remove_pressed"]
+[connection signal="gui_input" from="Name" to="." method="_on_Name_gui_input"]
+[connection signal="mouse_entered" from="Name" to="." method="_on_Name_mouse_entered"]
+[connection signal="mouse_exited" from="Name" to="." method="_on_Name_mouse_exited"]
+[connection signal="text_entered" from="Name/LineEdit" to="." method="_on_LineEdit_text_entered"]
