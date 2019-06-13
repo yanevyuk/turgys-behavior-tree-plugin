@@ -1,1 +1,0 @@
-# turgys-behavior-tree-plugin
