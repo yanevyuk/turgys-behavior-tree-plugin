@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/turgys-behavior-tree/GraphEditor/Nodes/Selector.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/icon_add.svg-635f698560db9ed218419f0d3186831b.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/icon_add_atlas_tile.svg-9a4676dbc403951584cc5e3435bc3152.stex"
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://.import/icon_add_single_tile.svg-5b7ca8e1c98749e1170318b8463da71e.stex"
+
+[node name="Sequence" type="GraphNode"]
+margin_right = 105.0
+margin_bottom = 47.0
+mouse_filter = 1
+title = "Selector"
+show_close = true
+comment = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 0.117647, 0.556863, 0.847059, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 1
+slot/0/right_color = Color( 0.8, 0.4, 0.8, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 0.8, 0.4, 0.8, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 1
+slot/1/right_color = Color( 0.8, 0.4, 0.8, 1 )
+script = ExtResource( 1 )
+connections = {
+
+}
+labels = {
+
+}
+
+[node name="Control" type="Control" parent="."]
+visible = false
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 89.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 0, 15 )
+
+[node name="Add" type="TextureButton" parent="."]
+margin_left = 16.0
+margin_top = 39.0
+margin_right = 89.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 0, 15 )
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 2 )
+texture_hover = SubResource( 3 )
+expand = true
+stretch_mode = 5
+[connection signal="close_request" from="." to="." method="_on_Sequence_close_request"]
+[connection signal="pressed" from="Add" to="." method="_on_TextureButton_pressed"]
