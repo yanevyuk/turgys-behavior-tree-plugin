@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/turgys-behavior-tree/GraphEditor/VisualEditor.gd" type="Script" id=1]
+[ext_resource path="res://addons/turgys-behavior-tree/GraphEditor/Nodes/MenuButton.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="InputEventKey" id=2]
+control = true
+command = true
+pressed = true
+scancode = 83
+
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 2 )
+
+[node name="Behavior Tree Graph" type="GraphEdit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+right_disconnects = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+total_made = {
+"Action": 0,
+"Condition": 0,
+"Inverter": 0,
+"RepeatUntilFail": 0,
+"Repeater": 0,
+"Root": 0,
+"Selector": 0,
+"Sequence": 0,
+"Succeeder": 0
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 62.0
+margin_top = 42.0
+margin_right = 148.0
+margin_bottom = 71.0
+
+[node name="MenuButton" type="MenuButton" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -97.0
+margin_top = -15.0
+margin_right = 97.0
+margin_bottom = 15.0
+theme = SubResource( 1 )
+text = "Add"
+items = [ "Root", null, 0, false, false, -1, 0, null, "", false, "Composites", null, 0, false, false, -1, 0, null, "", true, "Sequence", null, 0, false, false, -1, 0, null, "", false, "Selector", null, 0, false, false, -1, 0, null, "", false, "Decorators", null, 0, false, false, -1, 0, null, "", true, "Inverter", null, 0, false, false, -1, 0, null, "", false, "Succeeder", null, 0, false, false, -1, 0, null, "", false, "Repeater", null, 0, false, false, -1, 0, null, "", false, "Repeat Until Fail", null, 0, false, false, -1, 0, null, "", false, "Leaves", null, 0, false, false, -1, 0, null, "", true, "Action", null, 0, false, false, -1, 0, null, "", false, "Condition", null, 0, false, false, -1, 0, null, "", false ]
+script = ExtResource( 2 )
+
+[node name="Save" type="Button" parent="."]
+margin_left = 213.0
+margin_top = 11.0
+margin_right = 270.0
+margin_bottom = 32.0
+shortcut = SubResource( 3 )
+text = "Save"
+[connection signal="connection_request" from="." to="." method="_on_GraphEdit_connection_request"]
+[connection signal="disconnection_request" from="." to="." method="_on_GraphEdit_disconnection_request"]
+[connection signal="gui_input" from="." to="." method="_on_GraphEdit_gui_input"]
+[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
