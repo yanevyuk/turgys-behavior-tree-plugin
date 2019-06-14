@@ -22,5 +22,6 @@ func _tick():
 	if !actionscript.has_method("_tick"):
 		push_error("Condition's script does not have a _tick method")
 		return
-	return actionscript.call("_tick",logicRoot);
+	
+	return actionscript.call("_tick",logicRoot,behaviorTree,blackboard);
 	pass
