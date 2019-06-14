@@ -45,6 +45,8 @@ A Behavior Tree implementation for Godot with a graphical interface.
   
   **_remove_key(key: String):** Removes the key from the dictionary.
   
+  **_has_key(key: String):** Returns true if the blackboard has the key.
+  
   **_get(key: String):** Returns the value associated with the key.
   
   **_get_key(val):** Returns the key associated with the object.
