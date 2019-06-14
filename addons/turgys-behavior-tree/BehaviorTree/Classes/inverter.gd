@@ -12,5 +12,10 @@ func _tick():
 		push_error("Inverter doesn't have a child");
 		return
 	var retval = child._tick()
-	return !retval;
+	if retval == OK:
+		return FAILED;
+	elif retval == FAILED:
+		return OK;
+	else:
+		return ERR_BUSY;
 	pass
