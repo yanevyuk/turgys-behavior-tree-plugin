@@ -23,5 +23,5 @@ func _tick():
 		push_error("Action's actionscript does not have a _tick method")
 		return
 	
-	return actionscript.call("_tick",logicRoot);
+	return actionscript.call("_tick",logicRoot,behaviorTree,blackboard);
 	pass
