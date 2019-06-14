@@ -17,6 +17,9 @@ func _remove_key(key: String):
 	else:
 		push_warning(self.name+" does not have this key.");
 
+func _has_key(key: String):
+	return blackboard.has(key)
+
 func _get(key: String):
 	return blackboard.get(key);
 
