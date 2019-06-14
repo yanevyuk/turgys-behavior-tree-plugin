@@ -57,7 +57,7 @@ func _on_TextureButton_pressed():
 	if !labels.has(self.name):
 		labels[self.name]={}
 	labels[self.name][String(slot_counter)] = newlabel;
-	newlabel.script = load("res://addons/behavior-tree-plugin/GraphEditor/Nodes/SequenceLabel.gd")
+	newlabel.script = load("res://addons/turgys-behavior-tree/GraphEditor/Nodes/SequenceLabel.gd")
 	add_child_below_node(get_children()[slot_counter-1],newlabel)
 	newlabel.set_owner(get_parent())
 	slot_counter+=1

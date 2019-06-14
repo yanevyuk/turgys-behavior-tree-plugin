@@ -6,7 +6,7 @@ export(String, DIR) var BehaviorTree_Folder = null setget setFolder;
 export(PackedScene) var saveddock;
 export(Array) var all_connections = [];
 export(bool) var enabled =true setget set_enabled
-var blackboard = {}
+export(NodePath) var blackboard 
 
 func set_enabled(val):
 	enabled=val
@@ -23,9 +23,9 @@ func newObj(tag):
 		"root":
 			return root.new();
 		"condition":
-			return condition.new(get_node(logicRoot),self,blackboard);
+			return condition.new(get_node(logicRoot),self,get_node(blackboard));
 		"action":
-			return action.new(get_node(logicRoot),self,blackboard);
+			return action.new(get_node(logicRoot),self,get_node(blackboard));
 		"sequence":
 			return sequence.new();
 		"selector":

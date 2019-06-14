@@ -3,6 +3,9 @@ extends EditorPlugin
 
 var BehaviorTree = preload("res://addons/turgys-behavior-tree/BehaviorTree/BehaviorTree.gd");
 var BTico =  preload("res://addons/turgys-behavior-tree/BehaviorTree/icon_tree.svg");
+var Blackboard = preload("res://addons/turgys-behavior-tree/BehaviorTree/Blackboard.gd");
+var BBico =  preload("res://addons/turgys-behavior-tree/BehaviorTree/icon_item_list.svg");
+
 var dock
 
 var dock_map = {}
@@ -62,8 +65,9 @@ func _new_selection():
 	pass
 
 func _enter_tree():
-	#add_control_to_dock(DOCK_SLOT_RIGHT_UL, dock)
 	add_custom_type("BehaviorTree", "Node",BehaviorTree,BTico);
+	add_custom_type("Blackboard", "Node",Blackboard,BBico);
 	get_editor_interface().get_selection().connect("selection_changed",self,"_new_selection");
 func _exit_tree():
 	remove_custom_type("BehaviorTree");
+	remove_custom_type("Blackboard");

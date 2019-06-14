@@ -17,5 +17,5 @@ func _tick():
 	elif retval == FAILED:
 		return OK;
 	else:
-		return ERR_BUSY;
+		return ERR_BUSY
 	pass

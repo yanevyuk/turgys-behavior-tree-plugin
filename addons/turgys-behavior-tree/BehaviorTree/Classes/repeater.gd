@@ -20,6 +20,7 @@ func _tick():
 
 var retval = 0
 func _process(delta):
-	if retval != -1:
-		retval=-1;
-		retval = child._tick()
+	if begin:
+		if retval != -1:
+			retval=-1;
+			retval = child._tick()
