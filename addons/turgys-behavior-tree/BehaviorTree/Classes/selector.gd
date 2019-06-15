@@ -23,7 +23,7 @@ func _tick():
 	for child in children:
 		var retVal = child.front()._tick();
 		finalRet = retVal
-		if retVal == OK:
+		if retVal != FAILED:
 			break;
 	return finalRet
 	pass
