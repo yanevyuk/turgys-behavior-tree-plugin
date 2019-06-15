@@ -72,7 +72,7 @@ func _load_script():
 	pass
 
 func _option_chosen(id):
-	print(id)
+	#print(id)
 	if id == 0:
 		_new_script()
 	elif id == 1:
@@ -87,7 +87,7 @@ func _on_TextureButton_pressed():
 			set_actionscript(null)
 			delete_mode=false;
 		else:
-			print(get_parent().editorinterface.get_base_control().get_children())
+			#print(get_parent().editorinterface.get_base_control().get_children())
 			for child in get_parent().editorinterface.get_editor_viewport().get_children():
 				if child is ScriptEditor:
 					child.show();

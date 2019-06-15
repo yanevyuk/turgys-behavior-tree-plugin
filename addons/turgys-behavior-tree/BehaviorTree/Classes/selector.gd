@@ -22,7 +22,6 @@ func _tick():
 	var finalRet = FAILED
 	for child in children:
 		var retVal = child.front()._tick();
-		
 		finalRet = retVal
 		if retVal == OK:
 			break;
