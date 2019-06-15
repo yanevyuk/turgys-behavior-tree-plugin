@@ -1,4 +1,4 @@
-# turgys-behavior-tree-plugin
+# Turgy's Behavior Tree Plugin
 
 A Behavior Tree implementation for Godot with a graphical interface. 
 
