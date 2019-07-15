@@ -2,7 +2,9 @@ tool
 extends GraphNode
 
 signal delete_node(node)
+#warning-ignore:unused_class_variable
 var color = Color(0.8,0.4,0.8)
+#warning-ignore:unused_class_variable
 var tag = "action"
 export(GDScript) var actionscript setget set_actionscript;
 var delete_mode = false setget set_delete_mode;
@@ -105,6 +107,7 @@ func _on_Action_resize_request(new_minsize):
 	self.rect_min_size = Vector2(min(new_minsize.x,truemin_x),min(new_minsize.y,truemin_y))
 	pass # Replace with function body.
 
+#warning-ignore:unused_class_variable
 var mouse_is_on = false;
 func _on_Name_gui_input(event):
 	if event is InputEventMouseButton:

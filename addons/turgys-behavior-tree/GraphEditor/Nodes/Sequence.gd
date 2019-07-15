@@ -3,6 +3,7 @@ extends GraphNode
 
 signal delete_node(node)
 var color = Color("1e8ed8")
+#warning-ignore:unused_class_variable
 var tag = "sequence"
 var label = preload("res://addons/turgys-behavior-tree/GraphEditor/Nodes/SequenceLabel.tscn")
 export var slot_counter = 1
@@ -20,11 +21,11 @@ func _ready():
 	for s in get_children():
 		if s != add:
 			add_child_below_node(s,add)
-func _new_right_connection(from,from_slot,to,to_slot):
+func _new_right_connection(_from,from_slot,to,to_slot):
 	connections[self.name][String(from_slot+1)] = [to,to_slot];
 	pass
 
-func _remove_right_connection(from,from_slot,to,to_slot):
+func _remove_right_connection(_from,from_slot,_to,_to_slot):
 	connections[self.name][String(from_slot+1)] = []
 	pass
 
@@ -84,6 +85,7 @@ func _update_connections():
 
 func _delete_label(label):
 	var ID = label.ID
+	#warning-ignore:unused_variable
 	var stID = String(ID)
 	label.queue_free()
 	#_delete_connections()
