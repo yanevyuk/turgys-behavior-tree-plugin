@@ -33,7 +33,7 @@ func set_delete_mode(val):
 	else:
 		$TextureButton.texture_normal = load("res://addons/turgys-behavior-tree/GraphEditor/Nodes/icon_script_create.svg")
 
-var template = load("D:\\Godot\\Projects\\Behavior Tree Plugin\\addons\\turgys-behavior-tree\\BehaviorTree\\Templates\\action.gd")
+var template = load("res://addons/turgys-behavior-tree/BehaviorTree/Templates/action.gd")
 func _ready():
 	if actionscript == null:
 		$TextureButton.texture_normal = load("res://addons/turgys-behavior-tree/GraphEditor/Nodes/icon_script_create.svg")
