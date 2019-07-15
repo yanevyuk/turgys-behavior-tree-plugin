@@ -2,8 +2,11 @@ tool
 extends GraphNode
 
 signal delete_node(node)
+#warning-ignore:unused_class_variable
 var tag = "root"
+#warning-ignore:unused_class_variable
 var slot_counter = 0;
+#warning-ignore:unused_class_variable
 var slot_array = [];
 
 func _ready():

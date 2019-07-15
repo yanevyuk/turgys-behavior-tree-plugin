@@ -19,7 +19,7 @@ func _tick():
 	pass
 
 var retval = 0
-func _process(delta):
+func _process(_delta):
 	if begin:
 		if retval != -1:
 			retval=-1;

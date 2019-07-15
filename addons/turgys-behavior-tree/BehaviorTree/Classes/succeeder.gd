@@ -12,6 +12,7 @@ func _tick():
 	if child==null:
 		push_error("Succeeder doesn't have a child");
 		return
+	#warning-ignore:unused_variable
 	var retval = child._tick()
 	return OK;
 	pass

@@ -48,6 +48,7 @@ func _construct():
 	var fromNode;
 	var toNode;
 	var fromSlot
+	#warning-ignore:unused_variable
 	var toSlot
 	all_nodes.clear()
 	for connection in all_connections:

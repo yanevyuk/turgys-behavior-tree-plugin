@@ -2,9 +2,13 @@ tool
 extends GraphNode
 
 signal delete_node(node)
+#warning-ignore:unused_class_variable
 var color = Color(0.8,0.4,0.8)
+#warning-ignore:unused_class_variable
 var tag = "succeeder"
+#warning-ignore:unused_class_variable
 var slot_counter = 0;
+#warning-ignore:unused_class_variable
 var slot_array = [];
 
 func _ready():

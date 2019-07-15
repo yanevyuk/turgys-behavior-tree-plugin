@@ -9,6 +9,7 @@ func _setID(val):
 	self.text = String(ID)+"."
 
 func _ready():
+	#warning-ignore:return_value_discarded
 	self.connect("delete_me",get_parent(),"_delete_label")
 func _on_TextureButton_mouse_entered():
 	$Delete.visible = true;

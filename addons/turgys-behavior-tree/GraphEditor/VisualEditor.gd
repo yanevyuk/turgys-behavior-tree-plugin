@@ -1,9 +1,12 @@
 tool
 extends GraphEdit
+#warning-ignore:unused_class_variable
 var folder;
 var behavior_tree;
+#warning-ignore:unused_class_variable
 var editorinterface;
 signal request_variable_update(obj)
+#warning-ignore:unused_class_variable
 export(Array) var all_connections
 export(Dictionary) var total_made = {
 	"Root": 0,
@@ -27,6 +30,7 @@ func _ready():
 	_update_menu_button()
 	emit_signal("request_variable_update",self,behavior_tree)
 	for conn in all_connections:
+		#warning-ignore:return_value_discarded
 		connect_node(conn[0],conn[1],conn[2],conn[3])
 	OS.set_low_processor_usage_mode(true);
 	add_valid_left_disconnect_type(0);
@@ -48,6 +52,7 @@ func _on_GraphEdit_connection_request(from, from_slot, to, to_slot):
 		get_node(from)._new_right_connection(from,from_slot,to,to_slot)
 	if get_node(from).has_method("_new_left_connection"):
 		get_node(to)._new_left_connection(from,from_slot,to,to_slot)
+	#warning-ignore:return_value_discarded
 	connect_node(from,from_slot,to, to_slot);
 	pass # Replace with function body.
 
